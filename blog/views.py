@@ -16,13 +16,13 @@ def all_articles(request):
 def article_detail(request,id,slug):
     #article=Article.objects.get(id=id,slug=slug)
     article=get_object_or_404(Article,id=id,slug=slug)
-    comments=Comment.objects.filter(post=article,is_reply=False)
+    comments=Comment.objects.filter(post=article,is_reply=True)
     if request.method == 'POST':
         form=AddCommentForm(request.POST)
        
         if form.is_valid():
             new_comment=form.save(commit=False)
-            new_comment.article=article
+            new_comment.post=article
             new_comment.user=request.user
             new_comment.save()
             messages.success(request,"done")

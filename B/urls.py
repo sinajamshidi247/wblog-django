@@ -9,4 +9,4 @@ urlpatterns = [
     path('',include('blog.urls',namespace='blog')),
     path('accounts/',include('accounts.urls',namespace='accounts')),
     path('ckeditor/',include('ckeditor_uploader.urls'))
-] + static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)  #JUST IN DEVELOPMENT MODEL 
+ ] + static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)  #JUST IN DEVELOPMENT MODEL 

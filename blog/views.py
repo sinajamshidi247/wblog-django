@@ -16,7 +16,7 @@ def all_articles(request):
 def article_detail(request,id,slug):
     #article=Article.objects.get(id=id,slug=slug)
     article=get_object_or_404(Article,id=id,slug=slug)
-    comments=Comment.objects.filter(post=article,is_reply=True)
+    comments=Comment.objects.filter(post=article,is_reply=False)
     if request.method == 'POST':
         form=AddCommentForm(request.POST)
        
